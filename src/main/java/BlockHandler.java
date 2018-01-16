@@ -27,6 +27,10 @@ public class BlockHandler {
         createBlock(transaction);
     }
 
+    /**
+     * Create Block
+     * @param transaction
+     */
     public void createBlock(Transaction transaction) {
         Block block=new Block(blockChain.getPreviousBlockId(),transaction,getDate(),"0");
         System.out.println("Adding Block to Block Chain");

@@ -56,11 +56,21 @@ public class Block {
         this.previousHash = previousHash;
     }
 
+    /**
+     * function to provide data string to calculate SHA256 hash
+     */
     public void calculateHash() {
         String data = id + transaction.getFrom() + transaction.getTo() + transaction.getAmount() + previousHash + date + nonce;
         this.hash = getSHA265Hash(data);
     }
 
+    /**
+     * Mining function
+     * --> this function check the count of zeros in front of hash of the block
+     * --> Number of zeros depends on difficulty provided
+     * --> random value "nonce" is incremented to meet the criteria
+     * @param difficulty
+     */
     public void mine(int difficulty) {
 
         this.calculateHash();
@@ -76,6 +86,11 @@ public class Block {
         }
     }
 
+    /**
+     * Function to calculate SHA256 Hash for the given data
+     * @param data
+     * @return encrypted byte array
+     */
     public String getSHA265Hash(String data) {
         try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
@@ -89,6 +104,11 @@ public class Block {
         return null;
     }
 
+    /**
+     * function to convert byte array to hex string
+     * @param hashByte
+     * @return hex string
+     */
     public String getHexHash(byte[] hashByte) {
         final StringBuilder builder = new StringBuilder();
         for (byte b : hashByte) {

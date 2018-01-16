@@ -43,12 +43,15 @@ public class BlockChain {
             Block currentBlock = this.blocks.get(i);
             Block previousBlock = this.blocks.get(i - 1);
 
-            if(currentBlock.getPreviousHash()!=previousBlock.getHash()){
+            if (currentBlock.getPreviousHash() != previousBlock.getHash()) {
                 return false;
             }
 
-            if(currentBlock.calculateHash()!=currentBlock.getHash()){
-
+            String currentBlockOldHash = currentBlock.getHash();
+            currentBlock.calculateHash();
+            String currentBlockNewHash = currentBlock.getHash();
+            if (!currentBlockOldHash.equals(currentBlockNewHash)) {
+                return false;
             }
         }
         return true;

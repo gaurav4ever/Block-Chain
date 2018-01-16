@@ -74,7 +74,6 @@ public class Block {
         while (!this.hash.substring(0, difficulty).equals(validFrontHashPart)) {
             this.nonce++;
             this.calculateHash();
-//            System.out.println(this.hash);
         }
     }
 

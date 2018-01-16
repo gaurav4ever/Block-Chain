@@ -38,10 +38,26 @@ public class BlockChain {
         return this.blocks.getLast().getId();
     }
 
+    public boolean isValid() {
+        for (int i = 1; i < this.blocks.size(); i++) {
+            Block currentBlock = this.blocks.get(i);
+            Block previousBlock = this.blocks.get(i - 1);
+
+            if(currentBlock.getPreviousHash()!=previousBlock.getHash()){
+                return false;
+            }
+
+            if(currentBlock.calculateHash()!=currentBlock.getHash()){
+
+            }
+        }
+        return true;
+    }
+
     public void displayBlockChain() {
         int i = 0;
         for (Block block : this.blocks) {
-            System.out.println("\n*** Block " + (i++) +" ***");
+            System.out.println("\n*** Block " + (i++) + " ***");
 
             System.out.println("\tID: " + block.getId());
             System.out.println("\tDate Created: " + block.getDate());

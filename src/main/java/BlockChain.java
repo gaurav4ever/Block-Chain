@@ -3,7 +3,7 @@ import java.util.LinkedList;
 public class BlockChain {
 
     private LinkedList<Block> blocks;
-    private int difficulty = 42;
+    private int difficulty = 4;
 
     private static BlockChain blockChain = new BlockChain();
 

@@ -14,7 +14,7 @@ public class BlockHandler {
 
         System.out.println("Transfer Money from : ");
         from = input.readLine();
-        System.out.println("Transfer Money from : ");
+        System.out.println("Transfer Money To : ");
         to = input.readLine();
         System.out.println("Transfer amount : ");
         amount = Double.parseDouble(input.readLine());
